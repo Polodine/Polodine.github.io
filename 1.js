@@ -14,7 +14,6 @@
       position: 'fixed',
       top: requiredTop + 'px',
       left: originalRect.left + 'px',
-      //width: originalRect.width + 'px',
       'z-index': 9999
     }
     var originalStyles = {}
@@ -49,7 +48,6 @@
     return {
       left: rect.left + windowScroll.left,
       top: rect.top + windowScroll.top,
-      width: rect.width,
       height: rect.height
     }
   }
