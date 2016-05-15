@@ -22,17 +22,17 @@
       originalStyles[key] = el.style[key];
     });
 
-    var a, b, c;
-    
+    var a;
+
     if (window.ontouchmove) {
       a = window.ontouchmove;
     }
-    if (window.ontouchstart){
-      b = window.ontouchstart;
-    }
-    if (window.ontouchend){
-      c = window.ontouchend;
-    }
+    // if (window.ontouchstart){
+    //   b = window.ontouchstart;
+    // }
+    // if (window.ontouchend){
+    //   c = window.ontouchend;
+    // }
 
     window.ontouchmove = function(event) {
       if (getWindowScroll().top > originalRect.top - requiredTop) {
