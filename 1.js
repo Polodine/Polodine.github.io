@@ -40,6 +40,7 @@
       }
       a && a(event)
     }
+  }
 
   function calcRect(el) {
     var rect = el.getBoundingClientRect();
