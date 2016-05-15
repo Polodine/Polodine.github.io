@@ -22,9 +22,11 @@
       originalStyles[key] = el.style[key];
     });
 
-    var a;
+    var a, b, c;
     if (window.ontouchmove) {
       a = window.ontouchmove;
+      b = window.ontouchstart;
+      c = window.ontouchend;
     }
     
     window.ontouchmove = function(event) {
@@ -37,7 +39,9 @@
           el.style[key] = originalStyles[key];
         }
       }
-      a && a(event)
+      a && a(event);
+      b && b(event);
+      c && c(event);
     }
   }
 
