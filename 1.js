@@ -24,11 +24,10 @@
 
     var a;
 
-    if (window.onscroll) {
-      a = window.onscroll;
-    }
-
-    window.onscroll = function(event) {
+    // if (window.onscroll) {
+    //   a = window.onscroll;
+    // }
+    setInterval(function(){
       if (getWindowScroll().top > originalRect.top - requiredTop) {
         for (key in styles) {
           el.style[key] = styles[key];
@@ -39,7 +38,8 @@
         }
       }
       a && a(event)
-    }
+    }, 20)
+    
   }
 
   function calcRect(el) {
