@@ -46,7 +46,7 @@
     var rect = el.getBoundingClientRect();
     var windowScroll = getWindowScroll()
     return {
-      left: rect.left + windowScroll.left,
+      left: 100;
       top: rect.top + windowScroll.top,
       height: rect.height
     }
