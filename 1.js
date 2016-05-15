@@ -14,7 +14,7 @@
       position: 'fixed',
       top: requiredTop + 'px',
       left: originalRect.left + 'px',
-      width: originalRect.width + 'px',
+      //width: originalRect.width + 'px',
       'z-index': 9999
     }
     var originalStyles = {}
@@ -22,9 +22,11 @@
       originalStyles[key] = el.style[key];
     });
 
-    var a;
+    var a, b, c;
     if (window.ontouchmove) {
       a = window.ontouchmove;
+      b = window.ontouchstart;
+      c = window.ontouchend;
     }
     
     window.ontouchmove = function(event) {
@@ -37,7 +39,9 @@
           el.style[key] = originalStyles[key];
         }
       }
-      a && a(event)
+      a && a(event);
+      b && b(event);
+      c && c(event);
     }
   }
 
