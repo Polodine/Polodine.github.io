@@ -28,13 +28,7 @@
 
     if (window.ontouchmove) {
       a = window.ontouchmove;
-    }
-
-    if (window.ontouchstart){
       b = window.ontouchstart;
-    }
-
-    if (window.ontouchend){
       c = window.ontouchend;
     }
 
