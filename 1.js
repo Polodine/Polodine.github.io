@@ -40,7 +40,33 @@
         }
       }
       a && a(event);
+    }
+  }
+
+  window.ontouchstart = function(event) {
+      if (getWindowScroll().top > originalRect.top - requiredTop) {
+        for (key in styles) {
+          el.style[key] = styles[key];
+        }
+      } else {
+        for (key in originalStyles) {
+          el.style[key] = originalStyles[key];
+        }
+      }
       b && b(event);
+    }
+  }
+
+  window.ontouchend = function(event) {
+      if (getWindowScroll().top > originalRect.top - requiredTop) {
+        for (key in styles) {
+          el.style[key] = styles[key];
+        }
+      } else {
+        for (key in originalStyles) {
+          el.style[key] = originalStyles[key];
+        }
+      }
       c && c(event);
     }
   }
