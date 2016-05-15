@@ -39,7 +39,7 @@
           el.style[key] = originalStyles[key];
         }
       }
-      a && a(event);
+      a && a(event)
     }
   }
 
@@ -53,7 +53,7 @@
           el.style[key] = originalStyles[key];
         }
       }
-      b && b(event);
+      b && b(event)
     }
   }
 
@@ -67,7 +67,7 @@
           el.style[key] = originalStyles[key];
         }
       }
-      c && c(event);
+      c && c(event)
     }
   }
 
