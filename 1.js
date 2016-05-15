@@ -22,11 +22,12 @@
       originalStyles[key] = el.style[key];
     });
 
-    var a;
+    // var a;
 
-    // if (window.onscroll) {
+    // if (a) {
     //   a = window.onscroll;
     // }
+
     setInterval(function(){
       if (getWindowScroll().top > originalRect.top - requiredTop) {
         for (key in styles) {
@@ -37,9 +38,9 @@
           el.style[key] = originalStyles[key];
         }
       }
-      a && a(event)
-    }, 20)
-    
+      // a && a(event)
+    }, 5)
+
   }
 
   function calcRect(el) {
