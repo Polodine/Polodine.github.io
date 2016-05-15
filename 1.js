@@ -23,11 +23,11 @@
     });
 
     var a;
-    if (window.onscroll) {
-      a = window.onscroll;
+    if (window.ontouchmove) {
+      a = window.ontouchmove;
     }
     
-    window.onscroll = function(event) {
+    window.ontouchmove = function(event) {
       if (getWindowScroll().top > originalRect.top - requiredTop) {
         for (key in styles) {
           el.style[key] = styles[key];
