@@ -23,12 +23,17 @@
     });
 
     var a, b, c;
+    
     if (window.ontouchmove) {
       a = window.ontouchmove;
+    }
+    if (window.ontouchstart){
       b = window.ontouchstart;
+    }
+    if (window.ontouchend){
       c = window.ontouchend;
     }
-    
+
     window.ontouchmove = function(event) {
       if (getWindowScroll().top > originalRect.top - requiredTop) {
         for (key in styles) {
