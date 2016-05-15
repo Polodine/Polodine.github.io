@@ -23,13 +23,9 @@
     });
 
     var a;
-    var b;
-    var c;
 
     if (window.ontouchmove) {
       a = window.ontouchmove;
-      b = window.ontouchstart;
-      c = window.ontouchend;
     }
 
     window.ontouchmove = function(event) {
@@ -44,32 +40,6 @@
       }
       a && a(event)
     }
-    window.ontouchstart = function(event) {
-      if (getWindowScroll().top > originalRect.top - requiredTop) {
-        for (key in styles) {
-          el.style[key] = styles[key];
-        }
-      } else {
-        for (key in originalStyles) {
-          el.style[key] = originalStyles[key];
-        }
-      }
-      b && b(event)
-    }
-
-  window.ontouchend = function(event) {
-      if (getWindowScroll().top > originalRect.top - requiredTop) {
-        for (key in styles) {
-          el.style[key] = styles[key];
-        }
-      } else {
-        for (key in originalStyles) {
-          el.style[key] = originalStyles[key];
-        }
-      }
-      c && c(event)
-    }
-  }
 
   function calcRect(el) {
     var rect = el.getBoundingClientRect();
