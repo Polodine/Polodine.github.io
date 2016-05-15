@@ -46,7 +46,7 @@
     var rect = el.getBoundingClientRect();
     var windowScroll = getWindowScroll()
     return {
-      left: 100,
+      left: document.documentElement.clientWidth/2 - rect.width/2,
       top: rect.top + windowScroll.top,
       height: rect.height
     }
