@@ -24,11 +24,11 @@
 
     var a;
 
-    if (window.ontouchmove) {
-      a = window.ontouchmove;
+    if (window.onscroll) {
+      a = window.onscroll;
     }
 
-    window.ontouchmove = function(event) {
+    window.onscroll = function(event) {
       if (getWindowScroll().top > originalRect.top - requiredTop) {
         for (key in styles) {
           el.style[key] = styles[key];
