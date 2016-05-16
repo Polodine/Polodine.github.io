@@ -47,7 +47,7 @@
     var windowScroll = getWindowScroll();
     alert(rect.left + windowScroll.left);
     return {
-      left: rect.left + windowScroll.left,
+      left: rect.left,
       top: rect.top + windowScroll.top,
       height: rect.height
     }
