@@ -39,10 +39,12 @@ backface-visibility: hidden;*/
   </a>
   <script type="text/javascript" src="./1.js"></script>
   <script type="text/javascript">
-  var bars = document.querySelectorAll('.bar')
-  Array.prototype.forEach.call(bars, function(bar) {
-    sticky(bar);
-  });
+  window.onload = function(){
+    var bars = document.querySelectorAll('.bar');
+    Array.prototype.forEach.call(bars, function(bar) {
+      sticky(bar);
+    });
+  }
   </script>
 </body>
 </html>
