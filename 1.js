@@ -31,10 +31,6 @@
       if (getWindowScroll().top > originalRect.top - requiredTop) {
         for (key in styles) {
           el.style[key] = styles[key];
-          if (!b) {
-            alert(styles.left);
-            b = 1;
-          }
         }
       } else {
         for (key in originalStyles) {
@@ -49,6 +45,7 @@
   function calcRect(el) {
     var rect = el.getBoundingClientRect();
     var windowScroll = getWindowScroll();
+    alert(rect.left + windowScroll.left);
     return {
       left: rect.left + windowScroll.left,
       top: rect.top + windowScroll.top,
