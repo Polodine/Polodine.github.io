@@ -6,14 +6,14 @@
 
   return function sticky(el, top) {
 
-    var requiredOriginalStyles = ['position', 'top', 'left', 'z-index'];
+    var requiredOriginalStyles = ['position', 'left', 'top', 'z-index'];
 
     var requiredTop = top || 0;
     var originalRect = calcRect(el);
     var styles = {
       position: 'fixed',
-      top: requiredTop + 'px',
       left: originalRect.left + 'px',
+      top: requiredTop + 'px',
       'z-index': 9999
     }
     var originalStyles = {}
@@ -46,7 +46,7 @@
     var rect = el.getBoundingClientRect();
     var windowScroll = getWindowScroll();
     return {
-      left: 100,
+      left: rect.left + windowScroll.left,
       top: rect.top + windowScroll.top,
       height: rect.height
     }
@@ -54,8 +54,8 @@
 
   function getWindowScroll() {
     return {
-      top: window.pageYOffset || document.documentElement.scrollTop,
-      left: window.pageXOffset || document.documentElement.scrollLeft
+      left: window.pageXOffset || document.documentElement.scrollLeft,
+      top: window.pageYOffset || document.documentElement.scrollTop
     }
   }
 
