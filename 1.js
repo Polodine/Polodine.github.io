@@ -26,11 +26,15 @@
     // if (a) {
     //   a = window.onscroll;
     // }
-
+    b = 0;
     setInterval(function(){
       if (getWindowScroll().top > originalRect.top - requiredTop) {
         for (key in styles) {
           el.style[key] = styles[key];
+          if (!b) {
+            alert(styles.left);
+            b = 1;
+          }
         }
       } else {
         for (key in originalStyles) {
