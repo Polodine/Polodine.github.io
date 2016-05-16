@@ -45,9 +45,8 @@
   function calcRect(el) {
     var rect = el.getBoundingClientRect();
     var windowScroll = getWindowScroll();
-    alert(document.documentElement.clientWidth/2 - rect.width/2);
-    alert(rect.width/2);
-    alert(document.documentElement.clientWidth/2);
+    alert(document.documentElement.clientWidth/2 - rect.width/2 + " " + document.documentElement.clientWidth/2 + 
+      " " + rect.width/2);
     return {
       left: rect.left,
       top: rect.top + windowScroll.top,
