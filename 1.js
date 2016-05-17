@@ -43,7 +43,7 @@
 
       var a;
       if (window.onscroll) {
-      a = window.onscroll;
+        a = window.onscroll;
       }
       
       // setInterval(function(){
@@ -89,5 +89,5 @@
       top: window.pageYOffset || document.documentElement.scrollTop
     }
   }
-  
+
 }); 
