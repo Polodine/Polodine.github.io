@@ -47,6 +47,10 @@
       {
         alert('fire');
         setInterval(function(){
+          if (document.documentElement.touchend){
+            alert('lol');
+          }
+            // document.documentElement.touchend();
           if (getWindowScroll().top > originalRect.top - requiredTop) {
             for (key in styles) {
               el.style[key] = styles[key];
