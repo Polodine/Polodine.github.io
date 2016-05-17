@@ -6,8 +6,9 @@
 
   return function sticky(el, top) {
     var userAgent = window.navigator.userAgent;
-    if ((userAgent.toLowerCase().indexOf('android') > -1 )
-    && (userAgent.toLowerCase().indexOf('firefox') > -1)){
+    if (((userAgent.toLowerCase().indexOf('android') > -1 ) || (userAgent.toLowerCase().indexOf('iphone') > -1 )
+      || (userAgent.toLowerCase().indexOf('ipad') > -1 ) || (userAgent.toLowerCase().indexOf('ipod') > -1 ))
+    && (userAgent.toLowerCase().indexOf('firefox') > -1)){                                            
       
       if (document.readyState === "complete"){
         // alert('complete');
@@ -22,7 +23,7 @@
     
     else {
       // alert('not');
-      stickyInTimer();
+      stickyInTimer(); 
     }
 
     function stickyInTimer(){
@@ -41,9 +42,10 @@
         originalStyles[key] = el.style[key];
       });
       if ((userAgent.toLowerCase().indexOf('chrome') > -1 )
-      // || (userAgent.toLowerCase().indexOf('firefox') > -1)
+      || (userAgent.toLowerCase().indexOf('firefox') > -1)
       )
       {
+        alert('fire');
         setInterval(function(){
           if (getWindowScroll().top > originalRect.top - requiredTop) {
             for (key in styles) {

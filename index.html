@@ -17,6 +17,9 @@ backface-visibility: hidden;*/
       height: 120px;
       margin: auto;
       background-color:#333333;
+      position: static;
+      left: auto;
+      top: auto;
     }
     .placeholder{
       height: 400px;
@@ -25,11 +28,6 @@ backface-visibility: hidden;*/
   </style>
 </head>
 <body>
-  2) 
-  Chrome - все работает <br>
-  Mozilla - исправлено позиционирование с помощью события load <br>
-  UC - при setInterval счетчик не работает при скролинге, <br>
-  однако вернулись к событию скролл для реализации не быстрой прокрутки
   <div class="container">
     <div class="placeholder"></div>
     <div class="bar"></div>
