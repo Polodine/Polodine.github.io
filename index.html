@@ -48,7 +48,8 @@
   <script type="text/javascript">
       b = 0;
       setInterval(function(){
-        psevdo.innerHTML += rak.getBoundingClientRect().top.toFixed(0) + " ";
+        // psevdo.innerHTML += rak.getBoundingClientRect().top.toFixed(0) + " ";
+        psevdo.innerHTML += window.scrollY.toFixed(0) + " ";
         b++;
         if (b == 40)
         {
