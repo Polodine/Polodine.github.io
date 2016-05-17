@@ -28,12 +28,12 @@
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="container" id="cont">
     <div class="placeholder" ></div>
     <div class="bar" id="rak"></div>
-    <div class="placeholder" id="psevdo"><!-- whehasdfasdfasdfsdfasdfsb <br>aasdfasdfasdf <br>asdfasdf --></div>
+    <div class="placeholder" ><!-- whehasdfasdfasdfsdfasdfsb <br>aasdfasdfasdf <br>asdfasdf --></div>
     <div class="bar" style="background-color:#999999"></div>
-    <div class="placeholder" ></div>
+    <div class="placeholder" id="psevdo"></div>
     <div class="placeholder" ></div>
     <div class="placeholder" ></div>
 
@@ -51,7 +51,7 @@
   <script type="text/javascript">
       setInterval(function(){
         // psevdo.innerHTML += rak.getBoundingClientRect().top.toFixed(0) + " ";
-        psevdo.innerHTML += window.pageYOffset.toFixed(0) + " ";
+        psevdo.innerHTML += rak.offsetTop.toFixed(0) + " ";
       }, 500)
   </script>
   <!--<script type="text/javascript" src="./1.js"></script>
