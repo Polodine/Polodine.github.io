@@ -47,12 +47,12 @@
       )
       {
         setInterval(function(){
-                    psevdo.innerHTML += getWindowScroll().top;
-            b++;
-            if (b == 40){
-              psevdo.innerHTML += '<br>';
-              b = 0;}
-          if (getWindowScroll().top > originalRect.top - requiredTop) {
+            // psevdo.innerHTML += el.getBoundingClientRect().top + " ";
+            // b++;
+            // if (b == 40){
+            //   psevdo.innerHTML += '<br>';
+            //   b = 0;}
+          if (el.getBoundingClientRect().top <= 0) {
             for (key in styles) {
               el.style[key] = styles[key];
             }
