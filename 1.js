@@ -29,7 +29,7 @@
     function stickyInTimer(){
       b = 0;
       setInterval(function(){
-        psevdo.innerHTML += el.getBoundingClientRect().top + " ";
+        psevdo.innerHTML += el.getBoundingClientRect().top.toFixed(0) + " ";
         b++;
         if (b == 40)
         {
