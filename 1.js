@@ -11,21 +11,21 @@
       
       if (document.readyState === "complete"){
         // alert('complete');
-        stickyIn();
+        stickyInTimer();
       }
       else 
       window.addEventListener('load', function(){
         // alert('andro');
-        stickyIn();
+        stickyInTimer();
       });
     }
     
     else {
       // alert('not');
-      stickyIn();
+      stickyInTimer();
     }
 
-    function stickyIn(){
+    function stickyInTimer(){
       var requiredOriginalStyles = ['position', 'left', 'top', 'z-index'];
 
       var requiredTop = top || 0;
@@ -41,25 +41,36 @@
         originalStyles[key] = el.style[key];
       });
 
-      // var a;
+      var a;
 
-      // if (a) {
-      //   a = window.onscroll;
-      // }
+      if (a) {
+        a = window.onscroll;
+      }
       
-      setInterval(function(){
+      // setInterval(function(){
+      //   if (getWindowScroll().top > originalRect.top - requiredTop) {
+      //     for (key in styles) {
+      //       el.style[key] = styles[key];
+      //     }
+      //   } else {
+      //     for (key in originalStyles) {
+      //       el.style[key] = originalStyles[key];
+      //     }
+      //   }
+      // }, 20)
+      window.onscroll = function(event) {
         if (getWindowScroll().top > originalRect.top - requiredTop) {
           for (key in styles) {
             el.style[key] = styles[key];
           }
-        } else {
+        } 
+        else {
           for (key in originalStyles) {
             el.style[key] = originalStyles[key];
           }
         }
-        // a && a(event)
-      }, 20)
-    }
+        a && a(event)
+      }
 
   }
 
