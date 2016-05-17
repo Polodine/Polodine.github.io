@@ -10,12 +10,12 @@
     && (userAgent.toLowerCase().indexOf('firefox') > -1)){
       
       if (document.readyState === "complete"){
-        alert('complete');
+        // alert('complete');
         stickyIn();
       }
       else 
       window.addEventListener('load', function(){
-        alert('andro');
+        // alert('andro');
         stickyIn();
       });
     }
