@@ -40,36 +40,42 @@
       requiredOriginalStyles.forEach(function(key) {
         originalStyles[key] = el.style[key];
       });
-
-      // var a;
-      // if (window.onscroll) {
-      //   a = window.onscroll;
-      // }
       
-      setInterval(function(){
-        if (getWindowScroll().top > originalRect.top - requiredTop) {
-          for (key in styles) {
-            el.style[key] = styles[key];
+      if ((userAgent.toLowerCase().indexOf('chrome') > -1 )
+      || (userAgent.toLowerCase().indexOf('firefox') > -1)){
+        setInterval(function(){
+          if (getWindowScroll().top > originalRect.top - requiredTop) {
+            for (key in styles) {
+              el.style[key] = styles[key];
+            }
+          } else {
+            for (key in originalStyles) {
+              el.style[key] = originalStyles[key];
+            }
           }
-        } else {
-          for (key in originalStyles) {
-            el.style[key] = originalStyles[key];
-          }
+        }, 20)
+      }
+
+      else {
+        var a;
+        if (window.onscroll) {
+          a = window.onscroll;
         }
-      }, 20)
-      // window.onscroll = function(event) {
-      //   if (getWindowScroll().top > originalRect.top - requiredTop) {
-      //     for (key in styles) {
-      //       el.style[key] = styles[key];
-      //     }
-      //   } 
-      //   else {
-      //     for (key in originalStyles) {
-      //       el.style[key] = originalStyles[key];
-      //     }
-      //   }
-      //   a && a(event)
-      // }
+
+        window.onscroll = function(event) {
+          if (getWindowScroll().top > originalRect.top - requiredTop) {
+            for (key in styles) {
+              el.style[key] = styles[key];
+            }
+          } 
+          else {
+            for (key in originalStyles) {
+              el.style[key] = originalStyles[key];
+            }
+          }
+          a && a(event)
+        }
+      }
     }
   }
 
