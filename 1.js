@@ -41,35 +41,35 @@
         originalStyles[key] = el.style[key];
       });
 
-      var a;
-      if (window.onscroll) {
-        a = window.onscroll;
-      }
+      // var a;
+      // if (window.onscroll) {
+      //   a = window.onscroll;
+      // }
       
-      // setInterval(function(){
-      //   if (getWindowScroll().top > originalRect.top - requiredTop) {
-      //     for (key in styles) {
-      //       el.style[key] = styles[key];
-      //     }
-      //   } else {
-      //     for (key in originalStyles) {
-      //       el.style[key] = originalStyles[key];
-      //     }
-      //   }
-      // }, 20)
-      window.onscroll = function(event) {
+      setInterval(function(){
         if (getWindowScroll().top > originalRect.top - requiredTop) {
           for (key in styles) {
             el.style[key] = styles[key];
           }
-        } 
-        else {
+        } else {
           for (key in originalStyles) {
             el.style[key] = originalStyles[key];
           }
         }
-        a && a(event)
-      }
+      }, 20)
+      // window.onscroll = function(event) {
+      //   if (getWindowScroll().top > originalRect.top - requiredTop) {
+      //     for (key in styles) {
+      //       el.style[key] = styles[key];
+      //     }
+      //   } 
+      //   else {
+      //     for (key in originalStyles) {
+      //       el.style[key] = originalStyles[key];
+      //     }
+      //   }
+      //   a && a(event)
+      // }
     }
   }
 
