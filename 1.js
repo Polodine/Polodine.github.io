@@ -43,10 +43,15 @@
       });
       b = 0;
       if ((userAgent.toLowerCase().indexOf('chrome') > -1 )
-      // || (userAgent.toLowerCase().indexOf('firefox') > -1)
+      || (userAgent.toLowerCase().indexOf('firefox') > -1)
       )
       {
         setInterval(function(){
+                    psevdo.innerHTML += getWindowScroll().top;
+            b++;
+            if (b == 40){
+              psevdo.innerHTML += '<br>';
+              b = 0;}
           if (getWindowScroll().top > originalRect.top - requiredTop) {
             for (key in styles) {
               el.style[key] = styles[key];
@@ -61,7 +66,7 @@
             if (el.nextElementSibling && el.nextElementSibling.style.marginTop)
               el.nextElementSibling.style.marginTop = 0;
           }
-        }, 20)
+        }, 100)
       }
 
       else {
@@ -71,19 +76,12 @@
         }
 
         window.onscroll = function(event) {
-          psevdo.innerHTML += getWindowScroll().top;
-            b++;
-            if (b == 100){
-              psevdo.innerHTML += '<br>';
-              b = 0;
-          if (getWindowScroll().top > 400) {
+          if (getWindowScroll().top > originalRect.top - requiredTop) {
             for (key in styles) {
               el.style[key] = styles[key];
             }
             if (el.nextElementSibling){
               el.nextElementSibling.style.marginTop = originalRect.height + "px";
-            }
-                                    
             }
           } else  {
             for (key in originalStyles) {
@@ -91,9 +89,7 @@
             }
             if (el.nextElementSibling && el.nextElementSibling.style.marginTop)
               el.nextElementSibling.style.marginTop = 0;
-
           }
-
           a && a(event)
         }
       }
