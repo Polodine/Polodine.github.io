@@ -71,6 +71,11 @@
         }
 
         window.onscroll = function(event) {
+          psevdo.innerHTML += getWindowScroll().top;
+            b++;
+            if (b == 100){
+              psevdo.innerHTML += '<br>';
+              b = 0;
           if (getWindowScroll().top > 400) {
             for (key in styles) {
               el.style[key] = styles[key];
@@ -78,11 +83,7 @@
             if (el.nextElementSibling){
               el.nextElementSibling.style.marginTop = originalRect.height + "px";
             }
-                                    psevdo.innerHTML += '.';
-            b++;
-            if (b == 100){
-              psevdo.innerHTML += '<br>';
-              b = 0;
+                                    
             }
           } else  {
             for (key in originalStyles) {
