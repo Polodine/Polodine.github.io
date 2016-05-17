@@ -43,7 +43,7 @@
       });
       b = 0;
       if ((userAgent.toLowerCase().indexOf('chrome') > -1 )
-      || (userAgent.toLowerCase().indexOf('firefox') > -1)
+      // || (userAgent.toLowerCase().indexOf('firefox') > -1)
       )
       {
         setInterval(function(){
