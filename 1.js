@@ -26,7 +26,7 @@
     // if (a) {
     //   a = window.onscroll;
     // }
-    b = 0;
+    
     setInterval(function(){
       if (getWindowScroll().top > originalRect.top - requiredTop) {
         for (key in styles) {

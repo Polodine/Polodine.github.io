@@ -39,9 +39,23 @@ backface-visibility: hidden;*/
   </a>
   <script type="text/javascript" src="./1.js"></script>
   <script type="text/javascript">
-  window.onload = function(){
+  var userAgent = window.navigator.userAgent;
+  if ((userAgent.toLowerCase().indexOf('android') > -1 )
+    && (userAgent.toLowerCase().indexOf('firefox') > -1))
+  {
+    alert('android firefox');
+    window.onload = function(){
+      var bars = document.querySelectorAll('.bar');
+      Array.prototype.forEach.call(bars, function(bar) {
+        sticky(bar);
+      });
+    }
+  }
+  else {
+    alert('norm');
     var bars = document.querySelectorAll('.bar');
-    Array.prototype.forEach.call(bars, function(bar) {
+    Array.prototype.forEach.call(bars, function(bar) 
+    {
       sticky(bar);
     });
   }
