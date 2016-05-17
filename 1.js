@@ -47,11 +47,11 @@
       )
       {
         setInterval(function(){
-            // psevdo.innerHTML += el.getBoundingClientRect().top + " ";
-            // b++;
-            // if (b == 40){
-            //   psevdo.innerHTML += '<br>';
-            //   b = 0;}
+            psevdo.innerHTML += el.getBoundingClientRect().top + " ";
+            b++;
+            if (b == 40){
+              psevdo.innerHTML += '<br>';
+              b = 0;}
           if ((el.getBoundingClientRect().top <= 0) && (el.style.position == "")) {
             for (key in styles) {
               el.style[key] = styles[key];
@@ -66,7 +66,7 @@
             if (el.nextElementSibling && el.nextElementSibling.style.marginTop)
               el.nextElementSibling.style.marginTop = 0;
           }
-        }, 100)
+        }, 20)
       }
 
       else {
