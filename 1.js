@@ -13,17 +13,18 @@
         alert('complete');
         stickyIn();
       }
-      else window.onload = function(){
+      else 
+      window.addEventListener('load', function(){
         alert('andro');
         stickyIn();
-      }
-      
+      });
     }
-
+    
     else {
-      alert('not');
+      // alert('not');
       stickyIn();
     }
+
     function stickyIn(){
       var requiredOriginalStyles = ['position', 'left', 'top', 'z-index'];
 
