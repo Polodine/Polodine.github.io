@@ -71,7 +71,7 @@
         }
 
         window.onscroll = function(event) {
-          if (getWindowScroll().top > originalRect.top - requiredTop) {
+          if (getWindowScroll().top > 400) {
             for (key in styles) {
               el.style[key] = styles[key];
             }
