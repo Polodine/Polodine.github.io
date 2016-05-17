@@ -8,10 +8,16 @@
     var userAgent = window.navigator.userAgent;
     if ((userAgent.toLowerCase().indexOf('android') > -1 )
     && (userAgent.toLowerCase().indexOf('firefox') > -1)){
-      alert('andro');
-      window.onload = function(){
+      
+      if (document.readyState === "complete"){
+        alert('complete');
         stickyIn();
       }
+      else window.onload = function(){
+        alert('andro');
+        stickyIn();
+      }
+      
     }
 
     else {
