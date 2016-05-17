@@ -42,9 +42,8 @@
       });
 
       var a;
-
-      if (a) {
-        a = window.onscroll;
+      if (window.onscroll) {
+      a = window.onscroll;
       }
       
       // setInterval(function(){
@@ -71,7 +70,7 @@
         }
         a && a(event)
       }
-
+    }
   }
 
   function calcRect(el) {
@@ -90,5 +89,5 @@
       top: window.pageYOffset || document.documentElement.scrollTop
     }
   }
-
+  
 }); 
