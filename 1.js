@@ -33,14 +33,13 @@
       var styles = {
         position: 'fixed',
         left: originalRect.left + 'px',
-        top: requiredTop + 'px',
+        top: requiredTop+ 'px',
         'z-index': 9999
       }
       var originalStyles = {}
       requiredOriginalStyles.forEach(function(key) {
         originalStyles[key] = el.style[key];
       });
-      
       if ((userAgent.toLowerCase().indexOf('chrome') > -1 )
       || (userAgent.toLowerCase().indexOf('firefox') > -1)){
         setInterval(function(){
@@ -48,10 +47,15 @@
             for (key in styles) {
               el.style[key] = styles[key];
             }
-          } else {
+            if (el.nextElementSibling){
+              el.nextElementSibling.style.marginTop = originalRect.height + "px";
+            }
+          } else  {
             for (key in originalStyles) {
               el.style[key] = originalStyles[key];
             }
+            if (el.nextElementSibling && el.nextElementSibling.style.marginTop)
+              el.nextElementSibling.style.marginTop = 0;
           }
         }, 20)
       }
@@ -67,11 +71,15 @@
             for (key in styles) {
               el.style[key] = styles[key];
             }
-          } 
-          else {
+            if (el.nextElementSibling){
+              el.nextElementSibling.style.marginTop = originalRect.height + "px";
+            }
+          } else  {
             for (key in originalStyles) {
               el.style[key] = originalStyles[key];
             }
+            if (el.nextElementSibling && el.nextElementSibling.style.marginTop)
+              el.nextElementSibling.style.marginTop = 0;
           }
           a && a(event)
         }
