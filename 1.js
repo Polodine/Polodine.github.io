@@ -71,7 +71,7 @@
             if (el.nextElementSibling && el.nextElementSibling.style.marginTop)
               el.nextElementSibling.style.marginTop = 0;
           }
-        }, 200)
+        }, 20)
       }
 
       else {
