@@ -41,7 +41,9 @@
         originalStyles[key] = el.style[key];
       });
       if ((userAgent.toLowerCase().indexOf('chrome') > -1 )
-      || (userAgent.toLowerCase().indexOf('firefox') > -1)){
+      // || (userAgent.toLowerCase().indexOf('firefox') > -1)
+      )
+      {
         setInterval(function(){
           if (getWindowScroll().top > originalRect.top - requiredTop) {
             for (key in styles) {
