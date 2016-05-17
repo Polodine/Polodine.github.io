@@ -52,21 +52,26 @@
             if (b == 40){
               psevdo.innerHTML += '<br>';
               b = 0;}
-          if ((el.getBoundingClientRect().top <= 0) && (el.style.position == "")) {
+          // if ((el.getBoundingClientRect().top <= 0) && (el.style.position == "")) 
+          if (getWindowScroll().top > originalRect.top - requiredTop)
+          {
             for (key in styles) {
               el.style[key] = styles[key];
             }
             if (el.nextElementSibling){
               el.nextElementSibling.style.marginTop = originalRect.height + "px";
             }
-          } else  if ((getWindowScroll().top < originalRect.top - requiredTop) && (el.style.position == "fixed")){
+          } 
+          // else  if ((getWindowScroll().top < originalRect.top - requiredTop) && (el.style.position == "fixed"))
+          else
+          {
             for (key in originalStyles) {
               el.style[key] = originalStyles[key];
             }
             if (el.nextElementSibling && el.nextElementSibling.style.marginTop)
               el.nextElementSibling.style.marginTop = 0;
           }
-        }, 20)
+        }, 200)
       }
 
       else {
