@@ -27,77 +27,88 @@
     }
 
     function stickyInTimer(){
-      var requiredOriginalStyles = ['position', 'left', 'top', 'z-index'];
-
-      var requiredTop = top || 0;
-      var originalRect = calcRect(el);
-      var styles = {
-        position: 'fixed',
-        left: originalRect.left + 'px',
-        top: requiredTop+ 'px',
-        'z-index': 9999
-      }
-      var originalStyles = {}
-      requiredOriginalStyles.forEach(function(key) {
-        originalStyles[key] = el.style[key];
-      });
       b = 0;
-      if ((userAgent.toLowerCase().indexOf('chrome') > -1 )
-      || (userAgent.toLowerCase().indexOf('firefox') > -1)
-      )
-      {
-        setInterval(function(){
-            // psevdo.innerHTML += el.getBoundingClientRect().top + " ";
-            // b++;
-            // if (b == 40){
-            //   psevdo.innerHTML += '<br>';
-            //   b = 0;}
-          // if ((el.getBoundingClientRect().top <= 0) && (el.style.position == "")) 
-          if (getWindowScroll().top > originalRect.top - requiredTop)
-          {
-            for (key in styles) {
-              el.style[key] = styles[key];
-            }
-            if (el.nextElementSibling){
-              el.nextElementSibling.style.marginTop = originalRect.height + "px";
-            }
-          } 
-          // else  if ((getWindowScroll().top < originalRect.top - requiredTop) && (el.style.position == "fixed"))
-          else
-          {
-            for (key in originalStyles) {
-              el.style[key] = originalStyles[key];
-            }
-            if (el.nextElementSibling && el.nextElementSibling.style.marginTop)
-              el.nextElementSibling.style.marginTop = 0;
-          }
-        }, 20)
-      }
-
-      else {
-        var a;
-        if (window.onscroll) {
-          a = window.onscroll;
+      setInterval(function(){
+        psevdo.innerHTML += el.getBoundingClientRect().top + " ";
+        b++;
+        if (b == 40)
+        {
+          psevdo.innerHTML += '<br>';
+          b = 0;
         }
+      }, 500)
 
-        window.onscroll = function(event) {
-          if (getWindowScroll().top > originalRect.top - requiredTop) {
-            for (key in styles) {
-              el.style[key] = styles[key];
-            }
-            if (el.nextElementSibling){
-              el.nextElementSibling.style.marginTop = originalRect.height + "px";
-            }
-          } else  {
-            for (key in originalStyles) {
-              el.style[key] = originalStyles[key];
-            }
-            if (el.nextElementSibling && el.nextElementSibling.style.marginTop)
-              el.nextElementSibling.style.marginTop = 0;
-          }
-          a && a(event)
-        }
-      }
+      // var requiredOriginalStyles = ['position', 'left', 'top', 'z-index'];
+
+      // var requiredTop = top || 0;
+      // var originalRect = calcRect(el);
+      // var styles = {
+      //   position: 'fixed',
+      //   left: originalRect.left + 'px',
+      //   top: requiredTop+ 'px',
+      //   'z-index': 9999
+      // }
+      // var originalStyles = {}
+      // requiredOriginalStyles.forEach(function(key) {
+      //   originalStyles[key] = el.style[key];
+      // });
+      // b = 0;
+      // if ((userAgent.toLowerCase().indexOf('chrome') > -1 )
+      // || (userAgent.toLowerCase().indexOf('firefox') > -1)
+      // )
+      // {
+      //   setInterval(function(){
+      //       // psevdo.innerHTML += el.getBoundingClientRect().top + " ";
+      //       // b++;
+      //       // if (b == 40){
+      //       //   psevdo.innerHTML += '<br>';
+      //       //   b = 0;}
+      //     // if ((el.getBoundingClientRect().top <= 0) && (el.style.position == "")) 
+      //     if (getWindowScroll().top > originalRect.top - requiredTop)
+      //     {
+      //       for (key in styles) {
+      //         el.style[key] = styles[key];
+      //       }
+      //       if (el.nextElementSibling){
+      //         el.nextElementSibling.style.marginTop = originalRect.height + "px";
+      //       }
+      //     } 
+      //     // else  if ((getWindowScroll().top < originalRect.top - requiredTop) && (el.style.position == "fixed"))
+      //     else
+      //     {
+      //       for (key in originalStyles) {
+      //         el.style[key] = originalStyles[key];
+      //       }
+      //       if (el.nextElementSibling && el.nextElementSibling.style.marginTop)
+      //         el.nextElementSibling.style.marginTop = 0;
+      //     }
+      //   }, 20)
+      // }
+
+      // else {
+      //   var a;
+      //   if (window.onscroll) {
+      //     a = window.onscroll;
+      //   }
+
+      //   window.onscroll = function(event) {
+      //     if (getWindowScroll().top > originalRect.top - requiredTop) {
+      //       for (key in styles) {
+      //         el.style[key] = styles[key];
+      //       }
+      //       if (el.nextElementSibling){
+      //         el.nextElementSibling.style.marginTop = originalRect.height + "px";
+      //       }
+      //     } else  {
+      //       for (key in originalStyles) {
+      //         el.style[key] = originalStyles[key];
+      //       }
+      //       if (el.nextElementSibling && el.nextElementSibling.style.marginTop)
+      //         el.nextElementSibling.style.marginTop = 0;
+      //     }
+      //     a && a(event)
+      //   }
+      // }
     }
   }
 
