@@ -78,18 +78,19 @@
             if (el.nextElementSibling){
               el.nextElementSibling.style.marginTop = originalRect.height + "px";
             }
+                                    psevdo.innerHTML += '.';
+            b++;
+            if (b == 100){
+              psevdo.innerHTML += '<br>';
+              b = 0;
+            }
           } else  {
             for (key in originalStyles) {
               el.style[key] = originalStyles[key];
             }
             if (el.nextElementSibling && el.nextElementSibling.style.marginTop)
               el.nextElementSibling.style.marginTop = 0;
-                        psevdo.innerHTML += '.';
-            b++;
-            if (b == 100){
-              psevdo.innerHTML += '<br>';
-              b = 0;
-            }
+
           }
 
           a && a(event)
