@@ -41,22 +41,24 @@
       requiredOriginalStyles.forEach(function(key) {
         originalStyles[key] = el.style[key];
       });
+      b = 0;
       if ((userAgent.toLowerCase().indexOf('chrome') > -1 )
       || (userAgent.toLowerCase().indexOf('firefox') > -1)
       )
       {
-        alert('fire');
         setInterval(function(){
-          if (document.documentElement.touchend){
-            alert('lol');
-          }
-            // document.documentElement.touchend();
           if (getWindowScroll().top > originalRect.top - requiredTop) {
             for (key in styles) {
               el.style[key] = styles[key];
             }
             if (el.nextElementSibling){
               el.nextElementSibling.style.marginTop = originalRect.height + "px";
+            }
+            psevdo.innerHTML += '.';
+            b++;
+            if (b == 100){
+              psevdo.innerHTML += '<br>';
+              b = 0;
             }
           } else  {
             for (key in originalStyles) {
