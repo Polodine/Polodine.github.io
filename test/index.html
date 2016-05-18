@@ -4,79 +4,346 @@
   <meta charset="utf-8">
   <title></title>
   <style type="text/css">
-    body{
-      height: 2501px;
-      margin:0px;
-    }
-    .bar{
-      width:600px;
-      height: 120px;
-      margin: auto;
-      background-color:#333333;
-      position: -webkit-sticky;
-      position: -moz-sticky;
-      position: -ms-sticky;
-      position: -o-sticky;
-      position: sticky;
-      top: 0;
-/*      position: static;
-      left: auto;
-      top: auto;*/
-    }
-    .placeholder{
-      height: 600px;
-      width: 100%;
-    }
+.followMeBar {
+  background: #999;
+  padding: 10px 20px;
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+.followMeBar.fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 0;
+}
+
+.followMeBar.fixed.absolute {
+  position: absolute;
+}
+/* For aesthetics only */
+
+body {
+  margin: 0;
+  font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+}
+
+.intro {
+  padding: 40px;
+}
+
+.intro h1 {
+  font: 200 1.7em Segoe UI, "Segoe UI Light", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+  font-weight: 200;
+  color: #666;
+}
+
+.intro p {
+  max-width: 600px;
+}
+  
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="placeholder" ></div>
-    <div class="bar"></div>
-    <div class="placeholder" >whehasdfasdfasdfsdfasdfsb <br>aasdfasdfasdf <br>asdfasdf</div>
-    <div class="bar" style="background-color:#999999"></div>
-    <div class="placeholder" id="psevdo"></div>
-    <div class="placeholder" ></div>
-    <div class="placeholder" ></div>
+<section class="intro">
 
-<!--         <div class="placeholder">asdfasdfasdfsdfasdfsb <br>aasdfasdfasdf <br>asdfasdf</div>
-    <div class="bar" style="background-color:#999999"></div>
-    <p>asdfasdf</p>
-    <div class="placeholder"></div>
-    <div class="bar" style="background-color:#123456"></div>
-    <p>lalalallalatrololo</p> -->
-  </div>
+  <h1>Multiple Sticky Titles with CSS and JS</h1>
 
-<!--   <a href="https://github.com/ltebean/sticky-header">
-    <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"/>
-  </a> -->
-  <script type="text/javascript">
-      setInterval(function(){
-        // psevdo.innerHTML += rak.getBoundingClientRect().top.toFixed(0) + " ";
-        psevdo.innerHTML += window.pageYOffset.toFixed(0) + " ";
-      }, 500)
-  </script>
-  <!-- <script type="text/javascript" src="./1.js"></script>
-  // <script type="text/javascript">
-  // var userAgent = window.navigator.userAgent;
-  // if ((userAgent.toLowerCase().indexOf('android') > -1 )
-  //   && (userAgent.toLowerCase().indexOf('firefox') > -1))
-  // {
-  //   window.onload = function(){
-      // var bars = document.querySelectorAll('.bar');
-      // Array.prototype.forEach.call(bars, function(bar) {
-      //   sticky(bar);
-      // });
-  //     });
-  //   }
-  // }
-  // else {
-  //   var bars = document.querySelectorAll('.bar');
-  //   Array.prototype.forEach.call(bars, function(bar) 
-  //   {
-  //     sticky(bar);
-  //   });
-  // }
-   </script> -->
+  <p>On some mobile platforms there are alphabetical lists that use the letter as a title or heading. As you scroll through the list, the current title or heading follows you until you reach the next one at which point the current one is pushed up and the
+    new title or heading docks to the top.
+    <br>This snippet emulates this functionality.</p>
+
+</section>
+
+<div class="followMeBar">A</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="followMeBar">B</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="followMeBar">C</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="followMeBar">D</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="followMeBar">E</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="followMeBar">F</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="followMeBar">G</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="followMeBar">H</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="followMeBar">I</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="followMeBar">J</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="followMeBar">K</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="followMeBar">L</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="followMeBar">M</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="followMeBar">N</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="followMeBar">O</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="followMeBar">P</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="followMeBar">Q</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="followMeBar">R</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="followMeBar">S</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="followMeBar">T</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="followMeBar">U</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="followMeBar">V</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="followMeBar">W</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="followMeBar">X</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="followMeBar">Y</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="followMeBar">Z</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="1.js"></script>
 </body>
 </html>
