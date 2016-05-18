@@ -6,11 +6,11 @@
   <style type="text/css">
     html{
       /*overflow: hidden;*/
-      height: 100%;
+      /*height: 100%;*/
     }
     body{
-      overflow: auto;
-      height: 100%;
+      /*overflow: auto;*/
+      /*height: 100%;*/
       margin:0px;
     }
     .bar{
@@ -52,7 +52,11 @@
   </a>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script type="text/javascript">
+
       setInterval(function(){
+        target.css('overflow-y', 'hidden');
+target.scrollTop(0);
+target.css('overflow-y', 'auto');
         // psevdo.innerHTML += rak.getBoundingClientRect().top.toFixed(0) + " ";
         psevdo.innerHTML += $(document).scrollTop().toFixed(0) + " ";
       }, 500)
