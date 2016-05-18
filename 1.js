@@ -64,7 +64,7 @@
             //   psevdo.innerHTML += '<br>';
             //   b = 0;}
           // if ((el.getBoundingClientRect().top <= 0) && (el.style.position == "")) 
-          if (getWindowScroll().top > originalRect.top - requiredTop)
+          if ((getWindowScroll().top > originalRect.top - requiredTop) && (el.style.position == ""))
           {
             for (key in styles) {
               el.style[key] = styles[key];
@@ -74,7 +74,7 @@
             }
           } 
           // else  if ((getWindowScroll().top < originalRect.top - requiredTop) && (el.style.position == "fixed"))
-          else
+          else if ((getWindowScroll().top <= originalRect.top - requiredTop) && (el.style.position == "fixed"))
           {
             for (key in originalStyles) {
               el.style[key] = originalStyles[key];
