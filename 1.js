@@ -7,13 +7,17 @@
   return function sticky(el, top) {
     var userAgent = window.navigator.userAgent;
     var version = userAgent.indexOf(' rv:');
+    var cons = 0;
     if (((userAgent.toLowerCase().indexOf('android') > -1 ) || (userAgent.toLowerCase().indexOf('iphone') > -1 )
       || (userAgent.toLowerCase().indexOf('ipad') > -1 ) || (userAgent.toLowerCase().indexOf('ipod') > -1 ))
-    && (userAgent.toLowerCase().indexOf('firefox') > -1) && (userAgent.substring(version + 4, version + 6) > 44)){                                            
-
+    && (userAgent.toLowerCase().indexOf('firefox') > -1) && (userAgent.substring(version + 4, version + 6) > 44) && cons){                                            
+      window.addEventListener('load', function(){
+        stickyInTimer(); 
+      });
     }
     
     else {
+      cons++;
       // alert('not');
       window.addEventListener('load', function(){
         stickyInTimer(); 
