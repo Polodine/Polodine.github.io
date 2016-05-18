@@ -1,10 +1,11 @@
-! function(name, definition) {
-  if (typeof module != 'undefined' && module.exports) module.exports = definition();
-  else if (typeof define == 'function') define(definition);
-  else this[name] = definition();
-}('sticky', function() {
+// ! function(name, definition) {
+//   if (typeof module != 'undefined' && module.exports) module.exports = definition();
+//   else if (typeof define == 'function') define(definition);
+//   else this[name] = definition();
+// }('sticky', function() {
 
-  return function sticky(el,  top) {
+//   return 
+function sticky(el,  top) {
     var userAgent = window.navigator.userAgent;
     if (((userAgent.toLowerCase().indexOf('android') > -1 ) || (userAgent.toLowerCase().indexOf('iphone') > -1 )
       || (userAgent.toLowerCase().indexOf('ipad') > -1 ) || (userAgent.toLowerCase().indexOf('ipod') > -1 ))
@@ -129,4 +130,3 @@
     }
   }
 
-}); 
