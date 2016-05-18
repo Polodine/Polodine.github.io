@@ -23,7 +23,9 @@
     
     else {
       // alert('not');
-      stickyInTimer(); 
+      window.addEventListener('load', function(){
+        stickyInTimer(); 
+      });
     }
 
     function stickyInTimer(){
@@ -117,7 +119,7 @@
     var windowScroll = getWindowScroll();
     return {
       left: rect.left + windowScroll.left,
-      top: rect.top + windowScroll.top,
+      top: el.getAttribute('data-set') ? rect.top + windowScroll.top : rect.top + windowScroll.top - rect.height,
       height: rect.height
     }
   }
