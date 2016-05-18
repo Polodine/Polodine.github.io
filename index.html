@@ -16,18 +16,24 @@
 /*      position: static;
       left: auto;
       top: auto;*/
-    }
-    .placeholder{
-      height: 600px;
-      width: 100%;
-    }
-    .sticky{
       position: sticky;
       position: -webkit-sticky;
       position: -moz-sticky;
       position: -ms-sticky;
       position: -o-sticky;
+      top: 0px;
     }
+    .placeholder{
+      height: 600px;
+      width: 100%;
+    }
+/*    .sticky{
+      position: sticky;
+      position: -webkit-sticky;
+      position: -moz-sticky;
+      position: -ms-sticky;
+      position: -o-sticky;
+    }*/
   </style>
 </head>
 <body>
@@ -66,7 +72,7 @@
   //   window.onload = function(){
       var bars = document.querySelectorAll('.bar');
       Array.prototype.forEach.call(bars, function(bar) {
-        sticky(bar, 20);
+        sticky(bar, 0);
       });
   //     });
   //   }

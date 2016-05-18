@@ -6,21 +6,18 @@
 
   return function sticky(el, top) {
     var userAgent = window.navigator.userAgent;
-    if (
-      ((userAgent.toLowerCase().indexOf('android') > -1 ) || (userAgent.toLowerCase().indexOf('iphone') > -1 )
+    var version = userAgent.indexOf(' rv:');
+    if (((userAgent.toLowerCase().indexOf('android') > -1 ) || (userAgent.toLowerCase().indexOf('iphone') > -1 )
       || (userAgent.toLowerCase().indexOf('ipad') > -1 ) || (userAgent.toLowerCase().indexOf('ipod') > -1 ))
-    && (userAgent.toLowerCase().indexOf('firefox') > -1)
-    ){                                            
-      var bars = document.getElementsByClassName('bar');
-      for (var i in bars) if (bars.hasOwnProperty(i)){
-        bars[i].classList.add('sticky');
-        bars[i].style.top = top;
-      }
+    && (userAgent.toLowerCase().indexOf('firefox') > -1) && (userAgent.substring(version + 4, version + 6) > 44)){                                            
+
     }
     
     else {
       // alert('not');
-      stickyInTimer(); 
+      window.addEventListener('load', function(){
+        stickyInTimer(); 
+      });
     }
 
     function stickyInTimer(){
