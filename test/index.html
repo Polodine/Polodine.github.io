@@ -5,7 +5,7 @@
   <title></title>
   <style type="text/css">
     body{
-      height: 2501px;
+      height: 3501px;
       margin:0px;
     }
     .bar{
@@ -18,27 +18,59 @@
       top: auto;*/
     }
     .placeholder{
-      height: 600px;
+      height: 300px;
       width: 100%;
     }
   </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="js/scrollmagic/uncompressed/ScrollMagic.js"></script>
+  <script src="js/scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
 </head>
 <body>
+
+
   <div class="container">
-    <div class="placeholder" ></div>
-    <div class="bar"></div>
-    <div class="placeholder" >whehasdfasdfassdfsdfasdfsb <br>aasdfasdfasdf <br>asdfasdf</div>
-    <div class="bar" style="background-color:#999999"></div>
+    <div class="placeholder"></div>
+    <div id="trigger1"></div>
+    <div class="placeholder">
+       <div class="bar" id="bar1"></div>    
+    </div>
+        <script>
+          $(function(){
+      var scene = new ScrollMagic.Scene({triggerElement: "#trigger1", duration: 300, triggerHook: 0})
+      .setPin('#bar1', {pushFollowers: false})
+      .addIndicators({name: "1 (duration: 600)"})
+      .addTo(controller);
+    })
+        </script>
+    <div id="trigger2"></div>
+    <div class="placeholder">
+       <div class="bar" id="bar2" style="background-color:#999999"></div>    
+    </div>
+      <script>
+          $(function(){
+      var scene = new ScrollMagic.Scene({triggerElement: "#trigger2", duration: 300, triggerHook: 0})
+      .setPin('#bar2', {pushFollowers: false})
+      // .addIndicators({name: "2 (duration: 600)"})
+      .addTo(controller);
+    })
+        </script>
+    <!-- <div class="bar" style="background-color:#999999" id="bar2"></div> -->
+  </div>
+
+  <script>
+    var controller = new ScrollMagic.Controller();
+  </script>
 <!--     <div class="placeholder" id="psevdo"></div>
     <div class="placeholder" ></div>
-    <div class="placeholder" ></div> -->
+    <div class="placeholder" ></div> 
 
-<!--         <div class="placeholder">asdfasdfasdfsdfasdfsb <br>aasdfasdfasdf <br>asdfasdf</div>
+    <div class="placeholder">asdfasdfasdfsdfasdfsb <br>aasdfasdfasdf <br>asdfasdf</div>
     <div class="bar" style="background-color:#999999"></div>
     <p>asdfasdf</p>
     <div class="placeholder"></div>
     <div class="bar" style="background-color:#123456"></div>
-    <p>lalalallalatrololo</p> -->
+    <p>lalalallalatrololo</p> 
   </div>
 
   <a href="https://github.com/ltebean/sticky-header">
@@ -71,6 +103,6 @@
   //     sticky(bar);
   //   });
   // }
-  </script> 
+  </script> -->
 </body>
 </html>
