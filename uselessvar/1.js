@@ -1,67 +1,134 @@
-var stickyHeaders = (function() {
+! function(name, definition) {
+  if (typeof module != 'undefined' && module.exports) module.exports = definition();
+  else if (typeof define == 'function') define(definition);
+  else this[name] = definition();
+}('sticky', function() {
 
-  var $window = $(window),
-      $stickies;
-
-  var load = function(stickies) {
-
-    if (typeof stickies === "object" && stickies instanceof jQuery && stickies.length > 0) {
-
-      $stickies = stickies.each(function() {
-
-        var $thisSticky = $(this).wrap('<div class="followWrap" />');
-  
-        $thisSticky
-            .data('originalPosition', $thisSticky.offset().top)
-            .data('originalHeight', $thisSticky.outerHeight())
-              .parent()
-              .height($thisSticky.outerHeight());         
-      });
-
-      $window.off("scroll.stickies").on("scroll.stickies", function() {
-      _whenScrolling();   
+  return function sticky(el,  top) {
+    var userAgent = window.navigator.userAgent;
+    if (((userAgent.toLowerCase().indexOf('android') > -1 ) || (userAgent.toLowerCase().indexOf('iphone') > -1 )
+      || (userAgent.toLowerCase().indexOf('ipad') > -1 ) || (userAgent.toLowerCase().indexOf('ipod') > -1 ))
+    && (userAgent.toLowerCase().indexOf('firefox') > -1)){                                            
+      
+      if (document.readyState === "complete"){
+        // alert('complete');
+        stickyInTimer();
+      }
+      else 
+      window.addEventListener('load', function(){
+        // alert('andro');
+        stickyInTimer();
       });
     }
-  };
+    
+    else {
+      // alert('not');
+      window.addEventListener('load', function(){
+        stickyInTimer(); 
+      });
+    }
 
-  var _whenScrolling = function() {
+    function stickyInTimer(){
+      // b = 0;
+      // setInterval(function(){
+      //   psevdo.innerHTML += el.getBoundingClientRect().top.toFixed(0) + " ";
+      //   b++;
+      //   if (b == 40)
+      //   {
+      //     psevdo.innerHTML += '<br>';
+      //     b = 0;
+      //   }
+      // }, 500)
 
-    $stickies.each(function(i) {      
+      var requiredOriginalStyles = ['position', 'left', 'top', 'z-index'];
 
-      var $thisSticky = $(this),
-          $stickyPosition = $thisSticky.data('originalPosition');
+      var requiredTop = top || 0;
+      var originalRect = calcRect(el);
+      var styles = {
+        position: 'fixed',
+        left: originalRect.left + 'px',
+        top: requiredTop+ 'px',
+        'z-index': 9999
+      }
+      var originalStyles = {}
+      requiredOriginalStyles.forEach(function(key) {
+        originalStyles[key] = el.style[key];
+      });
+      b = 0;
+      if ((userAgent.toLowerCase().indexOf('chrome') > -1 )
+      || (userAgent.toLowerCase().indexOf('firefox') > -1)
+      )
+      {
+        setInterval(function(){
+            // psevdo.innerHTML += el.getBoundingClientRect().top + " ";
+            // b++;
+            // if (b == 40){
+            //   psevdo.innerHTML += '<br>';
+            //   b = 0;}
+          // if ((el.getBoundingClientRect().top <= 0) && (el.style.position == "")) 
+          if ((getWindowScroll().top > originalRect.top - requiredTop) && (el.style.position == ""))
+          {
+            for (key in styles) {
+              el.style[key] = styles[key];
+            }
+            if (el.nextElementSibling){
+              el.nextElementSibling.style.marginTop = originalRect.height + "px";
+            }
+          } 
+          // else  if ((getWindowScroll().top < originalRect.top - requiredTop) && (el.style.position == "fixed"))
+          else if ((getWindowScroll().top <= originalRect.top - requiredTop) && (el.style.position == "fixed"))
+          {
+            for (key in originalStyles) {
+              el.style[key] = originalStyles[key];
+            }
+            if (el.nextElementSibling && el.nextElementSibling.style.marginTop)
+              el.nextElementSibling.style.marginTop = 0;
+          }
+        }, 20)
+      }
 
-      if ($stickyPosition <= $window.scrollTop()) {        
-        
-        var $nextSticky = $stickies.eq(i + 1),
-            $nextStickyPosition = $nextSticky.data('originalPosition') - $thisSticky.data('originalHeight');
-
-        $thisSticky.addClass("fixed");
-
-        if ($nextSticky.length > 0 && $thisSticky.offset().top >= $nextStickyPosition) {
-
-          $thisSticky.addClass("absolute").css("top", $nextStickyPosition);
+      else {
+        var a;
+        if (window.onscroll) {
+          a = window.onscroll;
         }
 
-      } else {
-        
-        var $prevSticky = $stickies.eq(i - 1);
-
-        $thisSticky.removeClass("fixed");
-
-        if ($prevSticky.length > 0 && $window.scrollTop() <= $thisSticky.data('originalPosition') - $thisSticky.data('originalHeight')) {
-
-          $prevSticky.removeClass("absolute").removeAttr("style");
+        window.onscroll = function(event) {
+          if (getWindowScroll().top > originalRect.top - requiredTop) {
+            for (key in styles) {
+              el.style[key] = styles[key];
+            }
+            if (el.nextElementSibling){
+              el.nextElementSibling.style.marginTop = originalRect.height + "px";
+            }
+          } else  {
+            for (key in originalStyles) {
+              el.style[key] = originalStyles[key];
+            }
+            if (el.nextElementSibling && el.nextElementSibling.style.marginTop)
+              el.nextElementSibling.style.marginTop = 0;
+          }
+          a && a(event)
         }
       }
-    });
-  };
+    }
+  }
 
-  return {
-    load: load
-  };
-})();
+  function calcRect(el) {
+    var rect = el.getBoundingClientRect();
+    var windowScroll = getWindowScroll();
+    return {
+      left: rect.left + windowScroll.left,
+      top: el.getAttribute('data-set') ? rect.top + windowScroll.top : rect.top + windowScroll.top - rect.height,
+      height: rect.height
+    }
+  }
 
-$(function() {
-  stickyHeaders.load($(".followMeBar"));
-});
+  function getWindowScroll() {
+    return {
+      left: window.pageXOffset || document.documentElement.scrollLeft,
+      top: window.pageYOffset || document.documentElement.scrollTop
+    }
+  }
+
+}); 
