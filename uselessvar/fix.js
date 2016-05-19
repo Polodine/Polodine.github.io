@@ -21,16 +21,16 @@
 
 	var S = {
 		classes: {
-			plugin: 'fixedsticky',
-			active: 'fixedsticky-on',
-			inactive: 'fixedsticky-off',
-			clone: 'fixedsticky-dummy',
-			withoutFixedFixed: 'fixedsticky-withoutfixedfixed'
+			plugin: 'sticky',
+			active: 'sticky-on',
+			inactive: 'sticky-off',
+			clone: 'sticky-dummy',
+			withoutFixedFixed: 'sticky-withoutfixedfixed'
 		},
 		keys: {
-			offset: 'fixedStickyOffset',
-			position: 'fixedStickyPosition',
-			id: 'fixedStickyId'
+			offset: 'stickyOffset',
+			position: 'stickyPosition',
+			id: 'stickyId'
 		},
 		tests: {
 			sticky: featureTest( 'position', 'sticky' ),
@@ -137,7 +137,7 @@
 			return $el.each(function() {
 				var $this = $( this );
 				var id = $this.data( S.keys.id );
-				$( win ).unbind( '.fixedsticky' + id );
+				$( win ).unbind( '.sticky' + id );
 
 				$this
 					.removeData( [ S.keys.offset, S.keys.position, S.keys.id ] )
@@ -158,11 +158,11 @@
 				var id = uniqueIdCounter++;
 				$( this ).data( S.keys.id, id );
 
-				$( win ).bind( 'scroll.fixedsticky' + id, function() {
+				$( win ).bind( 'scroll.sticky' + id, function() {
 					S.update( _this );
-				}).trigger( 'scroll.fixedsticky' + id );
+				}).trigger( 'scroll.sticky' + id );
 
-				$( win ).bind( 'resize.fixedsticky' + id , function() {
+				$( win ).bind( 'resize.sticky' + id , function() {
 					if( $el.is( '.' + S.classes.active ) ) {
 						S.update( _this );
 					}
@@ -171,16 +171,16 @@
 		}
 	};
 
-	win.FixedSticky = S;
+	win.sticky = S;
 
 	// Plugin
-	$.fn.fixedsticky = function( method ) {
+	$.fn.sticky = function( method ) {
 		if ( typeof S[ method ] === 'function') {
 			return S[ method ].call( S, this);
 		} else if ( typeof method === 'object' || ! method ) {
 			return S.init.call( S, this );
 		} else {
-			throw new Error( 'Method `' +  method + '` does not exist on jQuery.fixedsticky' );
+			throw new Error( 'Method `' +  method + '` does not exist on jQuery.sticky' );
 		}
 	};
 
