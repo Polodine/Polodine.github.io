@@ -1,0 +1,351 @@
+.fontface(@directory){
+	font-family: "@{directory}";
+	src: url('fonts/@{directory}-webfont.eot');
+	src: url('fonts/@{directory}-webfont.eot#iefix') format('embedded-opentype'),
+		url('fonts/@{directory}-webfont.woff') format('woff'),
+		url('fonts/@{directory}-webfont.ttf') format('truetype'),
+		url('fonts/@{directory}-webfont.svg') format('svg');
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face{
+	.fontface('crimsontext-roman');
+}
+
+@font-face{
+	.fontface('montserrat-regular');
+}
+
+body{
+	font-family: 'montserrat-regular';
+}
+
+nav.navbar-main{
+	.navbar-brand:hover{
+		opacity: 0.7;
+	}
+	.navbar-collapse a{
+		font-size: 14px;
+		color: #343e5c;
+		font-weight: bold;
+	}
+	.navbar-collapse a:hover{
+		color: lighten(#343e5c, 30%)
+	}
+	.navbar{
+		background-color: white;
+	}
+	.navbar-btn{
+		color: #343e5c;
+		font-weight: bold;
+		letter-spacing: 1px;
+		border-radius: 44%;
+		border-width: 2px;
+	}
+}
+
+div.postnav{
+	a{
+		font-size: 14px;
+		color: #b9bed1;
+		font-size: 11px;
+	}
+	a:hover{
+		color: #343e5c;
+	}
+	.search-input{
+		width: 145px;
+	}
+	.search-input-control{
+		width: 110px;
+	}
+	.postnav-right{
+		float:right;
+	}
+	ul.postnav-list li.active a{
+		background-color: #343e5c;
+	}
+}
+
+
+.carousel-main{
+	margin-bottom: 0;
+	.item-1, .item-2, .item-3{
+		.carousel-caption{
+			.h6{
+				font-weight: bold;
+			}
+			.carousel-caption-description{
+				font-family: 'crimsontext-roman';
+			}
+			.carousel-caption-text{
+				width: 50%;
+			}
+		} 
+	}
+	.panel-footer{
+		font-family: 'crimsontext-roman';
+		font-weight: bold;
+		overflow: hidden;
+		position: relative;
+		.carousel-footer-description{
+			display: none;
+		}
+		p.active{
+			display: block;
+		}
+		p.pseudo-active{
+			display: block;
+		}
+	}
+}
+
+.trade-container{
+	background-color: #e4e5e7;
+	.trade-menu{
+		.ul-sort{
+			color: #a1a7bd;
+			margin: 15px;
+			a{
+				color: black;
+			}
+			.glyphicon{
+				color: white;
+			}
+			::-webkit-input-placeholder{
+				color: black;
+			}
+			::-moz-input-placeholder{
+				color: black;
+			}
+			:-moz-placeholder{
+				color: black;
+			}
+			:-ms-input-placeholder{
+				color: black;
+			}
+			> div{
+				// padding: 15px;
+				background-color: white;
+				// margin-right: 5px;
+			}
+			> div > div{
+				padding: 10px;
+			}
+			> div > div:nth-child(odd){
+				padding: 16px;
+			}
+			> div > div:nth-child(2){
+				border-right: 4px solid #e4e5e7;
+				border-left: 4px solid #e4e5e7;
+			}
+			.price-form{
+				width: 50px;
+			}
+			.free-shopping{
+				background-color: #00e2aa;
+				padding: 4px;
+				border-radius: 50%;
+				-ms-border-radius: 50%;
+				-webkit-border-radius: 50%;
+				-moz-border-radius: 50%;
+				-o-border-radius: 50%;
+			}
+			.left-ram{
+				margin-left: 10px;
+			}
+			.right-ram{
+				margin-right: 10px;
+			}
+			.form-control{
+				margin-right: 5px;
+				margin-left: 5px;
+			}
+		}
+		.list-sale{
+			.hidden-list-group-item{
+				background-color: #f0f2f7;
+			}
+			.all-checked{
+				cursor: pointer;
+				color: #2754eb;
+				text-decoration: underline;
+			}
+		}
+		.products{
+			.thumbnail{
+				padding: 15px;
+				height: 400px;
+				img{
+					height: 65%;
+				}
+				.thumbnail-color{
+					color: #dbdfe9;
+				}
+			}
+			.thumbnail-background{
+				background-image: url('imgs/sale/product_9/low.jpg');
+				background-position: 50%;
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+			}
+		}
+	}
+}
+
+footer{
+	.well{
+		background-color: #222328;
+		margin-bottom: 0;
+		color: #4a4b4f;
+		p{
+			font-style: italic;
+			width: 50%;
+		}
+		a{
+			color: #4a4b4f;
+			text-transform: none;
+		}
+	}
+}
+
+@media all and (min-width: 768px) and (max-width: 989px){
+	.trade-container .trade-menu .products div.thumbnail-background{
+		background-image: url('imgs/sale/product_9/med.jpg');
+	}
+}
+
+@media all and (min-width: 990px) and (max-width: 1199px){
+	.trade-container .trade-menu .products div.thumbnail-background{
+		background-image: url('imgs/sale/product_9/high.jpg');
+	}
+}
+
+@media all and (min-width: 1200px){
+	.trade-container .trade-menu .products div.thumbnail-background{
+		background-image: url('imgs/sale/product_9/very_high.jpg');
+	}
+}
+
+@media all and (max-width: 450px){
+	.trade-container .trade-menu .products .thumbnail{
+		height: 300px;
+		h3{
+			font-size: 14px;
+		}
+		p{
+			font-size: 11px;
+		}
+		img{
+			height: 50%;
+		}
+	}
+}
+
+@media all and (min-width: 1700px){
+	.trade-container .trade-menu .products .thumbnail{
+		height: 500px;
+	}
+}
+
+@media all and (max-width: 991px){
+	nav.navbar-main .navbar-collapse a{
+		font-size: 11px;
+	}
+	nav.navbar-main .navbar-btn{
+		border-width: 1px;
+		letter-spacing: 0px;
+	}
+}
+
+
+@media all and (max-width: 767px){
+	nav.navbar-main .navbar-collapse a{
+		font-size: 14px;
+	}
+	nav.navbar-main .navbar-btn{
+		border-width: 2px;
+		margin-left: 14px;
+	}
+
+}
+
+
+
+@media all and (max-width: 660px){
+	.carousel-caption-description{
+		display: none;
+	}
+}
+
+@media all and (max-width: 470px){
+	div.postnav .postnav-right{
+		float: none;
+	}
+	div.postnav .postnav-list{
+		margin-top: 5px;
+	}
+	div.carousel-main .item .btn{
+	  	padding: 1px 5px;
+  		font-size: 12px;
+  		line-height: 1.5;
+  		border-radius: 3px;
+	}
+}
+
+@media all and (max-width: 350px){
+	div.carousel-main .item .carousel-caption{
+		bottom: 0;
+	}
+	div.carousel-caption p.h6{
+		font-size: 10px;
+	}
+}
+
+@media all and (min-width: 500px){
+	div.carousel-caption p.h6{
+		font-size: 18px;
+	}
+}
+
+@media all and (min-width: 660px){
+	.carousel-footer{
+		display: none;
+	}
+}
+
+
+
+@media all and (min-width: 860px){
+	div.carousel-main .item .carousel-caption{
+		top: 20px;
+		display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  		display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  		display: -ms-flexbox;      /* TWEENER - IE 10 */
+  		display: -webkit-flex; 
+		display: flex;
+	}
+	div.carousel-main .item .carousel-caption-text{
+		margin-top: auto;
+		margin-bottom: auto; 
+	}
+	div.carousel-caption p.h6{
+		font-size: 34px;
+	}
+	div.carousel-main .item .btn{
+  		padding: 10px 16px;
+  		font-size: 18px;
+  		line-height: 1.3333333;
+  		border-radius: 6px;
+	}
+}
+
+@media all and (min-width: 1440px){
+	div.carousel-caption p.h6{
+		font-size: 54px;
+	}
+	.carousel-caption-description{
+		font-size: 20px;
+	}
+}

@@ -1,0 +1,180 @@
+
+// added LESS mixin |||||
+.fontface(@dir){
+		font-family: '@{dir}';
+		font-weight: normal;
+		font-style: normal;
+		src: url("fonts/@{dir}-webfont.eot");
+		src: url("fonts/@{dir}-webfont.eot#iefix") format('embedded-opentype'),
+			url("fonts/@{dir}-webfont.woff") format('woff'),
+			url("fonts/@{dir}-webfont.ttf") format('truetype'),
+			url("fonts/@{dir}-webfont.woff2") format('woff2');
+}
+
+.box-shadow-none(){
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+}
+
+@font-face{
+	.fontface('inconsolata.regular');
+}
+@font-face{
+	.fontface('playfairdisplay-regular');
+}
+@font-face{
+	.fontface('ubuntu-light');
+}	
+
+body{
+	font-family: 'playfairdisplay-regular';
+}
+
+nav .navbar-default .navbar-header .navbar-brand{
+	font-family: 'inconsolata.regular';	
+	font-size: 40px;
+	letter-spacing: 10px;
+	color: black;
+}
+
+nav .navbar-default .navbar-nav > li{
+	margin-right: 38px;
+}
+
+article section .section_main, article aside{
+	margin-top: 30px;
+}
+
+ .chapter_link, .small_heading, .reply{
+  font-family: 'ubuntu-light';
+  color: #b4ad9e;
+}
+
+.chapter_link:hover, .reply:hover{
+  color: darken(#b4ad9e, 30%);
+  text-decoration: none;
+}
+
+.post_link > a, .footer_link > li > a{
+	color: black;
+}
+
+.post_link > a:hover, .footer_link > li > a:hover,
+nav .navbar-header .navbar-brand:hover,
+article .post_link:visited{
+	color: lighten(black, 40%);
+	text-decoration: none;
+}
+
+.response_form .input-group{
+	width: 50%; 
+}
+
+.response_form .input-group .form-control{
+	.box-shadow-none();
+}
+
+.response_form .input-group .form-control::-webkit-input-placeholder{
+	color: black;
+}
+
+.response_form .input-group .form-control::-moz-input-placeholder{
+	color: black;
+}
+
+.response_form .input-group .form-control::-ms-input-placeholder{
+	color: black;
+}
+
+.response_form .input-group .input-group-addon, 
+.response_form .input-group .form-control{
+	background-color: #f0f0f0;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	border-bottom-color: black;
+}
+
+article .button_load-more, 
+aside .img-responsive, 
+.response_form .input-group{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+article section .jumbo_load{
+	background-color: white;
+}
+
+.quote_main{
+	font-style: italic;
+}
+
+.btn-group-text:active{
+	.box-shadow-none();
+}
+
+.btn-group-text:hover{
+	cursor: default;
+}
+
+.load_article{
+	margin-top: 50px;
+}
+
+textarea{
+	resize: none;
+}
+
+textarea::-webkit-input-placeholder{
+	font-family: 'ubuntu-light';
+}
+
+textarea::-moz-input-placeholder{
+	font-family: 'ubuntu-light';
+}
+
+textarea::-ms-input-placeholder{
+	font-family: 'ubuntu-light';
+}
+
+footer{
+	margin-top: 30px;
+}
+
+footer > div.well {
+	margin-bottom: 0px;
+}
+
+footer .well .btn-group{
+	float: right;
+}
+
+@media all and (max-width: 425px){
+	p.thumbnail_caption_main{
+		font-size: 13px;
+	}
+	.response_form .input-group{
+		width:80%;
+	}
+}
+
+
+@media all and (min-width:1100px){
+	.response_form .input-group{
+		width:30%;
+	}
+}
+
+@media all and (max-width: 323px){
+	.btn_group_link > .btn{
+		padding: 9px;
+	}
+}
+
+@media all and (max-width:293px){
+	.btn_group_link > .btn{
+		padding: 7px;
+	}
+}
