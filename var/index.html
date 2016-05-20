@@ -17,7 +17,7 @@
         </div>
       </div>
     </div>
-    <div class="placeholder bar_text">
+    <div class="placeholder bar_text" id="psevdo">
       asdfww
       <div class="placeholder bar_wrapper" style="height: 3000px; width: 600px;margin: auto; z-index: -1">
         <div class="bar fixedsticky" style="background-color:#999999" id="bar2"></div>
@@ -61,7 +61,8 @@
           if (window.pageYOffset <= 1319 && destroyer){
             $( '#bar1' ).fixedsticky('');
             destroyer = 0;
-          } 
+          }
+        // psevdo.innerHTML += $( '#bar2' ).fixedsticky('update').isFixedToTop; 
       }, 50)  
     })
 

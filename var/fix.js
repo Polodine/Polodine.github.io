@@ -127,6 +127,8 @@
 					toggle( false );
 				}
 			}
+
+			return isFixedToTop;
 		},
 		destroy: function( el ) {
 			var $el = $( el );
