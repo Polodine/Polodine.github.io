@@ -1,7 +1,7 @@
 $(function(){
   var destroyer = 0;
   var userAgent = window.navigator.userAgent;
-  var topElement = document.getElementById('bar1').getBoundingClientRect().top + window.pageYOffset;
+  var topElement = document.getElementById('bar2').getBoundingClientRect().top + window.pageYOffset;
   if (((userAgent.toLowerCase().indexOf('android') > -1 ) || (userAgent.toLowerCase().indexOf('iphone') > -1 )
   || (userAgent.toLowerCase().indexOf('ipad') > -1 ) || (userAgent.toLowerCase().indexOf('ipod') > -1 ))
 && (userAgent.toLowerCase().indexOf('firefox') > -1)){ 
