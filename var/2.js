@@ -7,6 +7,7 @@ $(function(){
 && (userAgent.toLowerCase().indexOf('firefox') > -1)){ 
   setInterval(function(){
     if (window.pageYOffset > topElement && !destroyer){
+      alert('s');
       $( '#bar1' ).css('display', 'none');
       destroyer = 1;
     }
