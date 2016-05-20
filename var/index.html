@@ -3,48 +3,12 @@
 <head>
   <meta charset="utf-8">
   <title></title>
-  <style type="text/css">
-    html{
-      /*overflow: hidden;*/
-      /*height: 100%;*/
-    }
-    body{
-      /*overflow: auto;*/
-      /*height: 100%;*/
-      margin:0px;
-    }
-    .bar{
-      width:600px;
-      height: 120px;
-      margin: auto;
-      background-color:#333333;
-/*      position: static;
-      left: auto;
-      top: auto;*/
-    }
-    .placeholder{
-      height: 600px;
-      width: 100%;
-    }
-    .fixedsticky { top: 0; }
-    .bar_text{
-      position: relative;
-      margin-top: 120px;
-    }
-    .bar_wrapper{
-      width: 600px;
-      margin: auto;
-      position: absolute;
-      height: 840px;
-      top: -120px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="1.css">
 </head>
 <body>
   <div class="container" id="wind">
     <div class="placeholder" >
-    <h3>asd</h3>
     </div>
     <div class="placeholder bar_text">
       asdfff
@@ -53,9 +17,12 @@
         </div>
       </div>
     </div>
-      <div class="placeholder" style="height: 3000px; width: 600px;margin: auto;">
+    <div class="placeholder bar_text">
+      asdfww
+      <div class="placeholder bar_wrapper" style="height: 3000px; width: 600px;margin: auto; z-index: -1">
         <div class="bar fixedsticky" style="background-color:#999999" id="bar2"></div>
       </div>
+
 <!--     <div class="placeholder" id="psevdo"></div>
     <div class="placeholder" ></div> -->
 
@@ -80,9 +47,24 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="fix.js"></script>
   <script>
-    // $( '#bar1' ).fixedsticky();
-    // $( '#bar2' ).fixedsticky();
-    $('.bar').fixedsticky();
+    $(function(){
+      $( '#bar1' ).fixedsticky();
+      $( '#bar2' ).fixedsticky();
+      // $('.bar').fixedsticky();
+      // var destroyer = 0;
+      // setInterval(function(){
+      //   if (window.pageYOffset > 1340 && !destroyer){
+      //     $( '#bar1' ).fixedsticky('destroy');
+      //     destroyer = 1;
+      //   }
+      //   else 
+      //     if (window.pageYOffset <= 1340 && destroyer){
+      //       $( '#bar1' ).fixedsticky('');
+      //       destroyer = 0;
+      //     } 
+      // }, 50)  
+    })
+
   </script>
 </body>
 </html>
