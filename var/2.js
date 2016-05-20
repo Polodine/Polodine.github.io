@@ -7,7 +7,7 @@ $(function(){
     && (userAgent.toLowerCase().indexOf('firefox') > -1)){ 
       setInterval(function(){
         if (window.pageYOffset > topElement && !destroyer){
-          alert('lal');
+          // alert('lal');
           $( '#bar1' ).css('display', 'none');
           destroyer = 1;
         }
@@ -17,6 +17,6 @@ $(function(){
             destroyer = 0;
           }
         // psevdo.innerHTML += $( '#bar2' ).fixedsticky('update').isFixedToTop; 
-      }, 20)  
+      }, 2)  
     }
 })
