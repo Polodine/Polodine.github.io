@@ -51,21 +51,9 @@
       $( '#bar1' ).fixedsticky();
       $( '#bar2' ).fixedsticky();
       // $('.bar').fixedsticky();
-      var destroyer = 0;
-      setInterval(function(){
-        if (window.pageYOffset > 1319 && !destroyer){
-          $( '#bar1' ).css('display', 'none');
-          destroyer = 1;
-        }
-        else 
-          if (window.pageYOffset <= 1319 && destroyer){
-            $( '#bar1' ).css('display', 'block');
-            destroyer = 0;
-          }
-        // psevdo.innerHTML += $( '#bar2' ).fixedsticky('update').isFixedToTop; 
-      }, 50)  
-    })
+  })
 
   </script>
+  <script src="2.js"></script>
 </body>
 </html>
