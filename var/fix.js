@@ -51,7 +51,6 @@
 				win.FixedFixed && !$( win.document.documentElement ).hasClass( 'fixed-supported' );
 		},
 		update: function( el ) {
-			alert(el);
 			if( !el.offsetWidth ) { return; }
 
 			var $el = $( el ),
@@ -129,7 +128,6 @@
 					toggle( false );
 				}
 			}
-			return 'lol';
 		},
 		destroy: function( el ) {
 			var $el = $( el );
