@@ -1,110 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="user-scalable=no">
   <title></title>
+  
   <style type="text/css">
-    /*
-Tutorial Name: Scroll To Top Then Fixed Navigation Effect With JQuery and CSS
-https://stanhub.com/scroll-to-top-then-fixed-navigation-effect-with-jquery-and-css-free-download/
-Description: Create a sticky navigation bar that remains fixed to the top after scroll
-Author: Stan Kostadinov
-Author URI: https://stanhub.com
-Version: 1.0.0 - 11.01.2014
-*/
-
-* {margin: 0; padding: 0;}
-
-a {text-decoration: none;}
-
-/* This class is added on scroll */
-.fixed {
-  position: fixed;
-  top: 0;
-  height: 70px;
-  z-index: 1;
-}
-
-body {
-  color: #fff;
-  font-family: 'open-sans-bold', AvenirNext-Medium, sans-serif;
-  font-size: 18px;
-  text-align: center;
-}
-
-/* Navigation Settings */
-nav {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 70px;
-  background: #fff;
-}
-
-nav li {
-  display: inline-block;
-  padding: 24px 10px;
-}
-
-nav li a {
-  color: #757575;
-  text-transform: uppercase;
-}
-
-section {
-  height: 100vh;
-}
-
-/* Screens Settings */
-#screen1 {
-  background: #43b29d;
-}
-
-#screen1 p {
-  padding-top: 200px;
-}
-
-#screen2 {
-  background: #efc94d;
-}
-
-#screen3 {
-  background: #e1793d;
-}
-
-@media only screen and (max-width: 520px) {
-
-  nav li {
-    padding: 24px 4px;
-  }
-
-  nav li a {
-    font-size: 14px;
-  }
-
-}
+    body{
+      height: 5000px;
+      margin:0px;
+    }
+    .bar{
+      width:600px;
+      height: 150px;
+      margin: auto;
+      background-color:#333333;
+      position: sticky;
+      top: 0;
+    }
+    .placeholder{
+      height: 200px;
+      width: 100%;
+    }
   </style>
+
 </head>
 <body>
-  <section id="screen1">
-
-  <p>Scroll down</p>
-
-  <nav>
-     <ul>
-   <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Team</a></li>
-        <li><a href="#">Contact</a></li>
-     </ul>
-  </nav>
-
-</section>
-
-<section id="screen2"></section>
-<section id="screen3"></section>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script type="text/javascript" src="1.js"></script>
+  <div class="container" id="go">
+    <div class="placeholder"></div>
+    <div class="placeholder" id="gg"></div>
+    <div class="bar"></div>
+    <div class="placeholder">asdkfjasd</div>
+    <div class="bar" style="background-color:#999999" id="bar2"></div>
+    <div class="placeholder" >asdkfjaasfeaw123sd2</div>
+    <div class="placeholder">asdkfjasd</div>
+    <div class="placeholder">asdkfjasd</div>
+    <div class="placeholder">asdkfjasd</div>
+    <div class="placeholder" id="lal">asdkfjasd</div>
+    <div class="placeholder">asdkfjasd</div>
+  </div>
+  <a href="https://github.com/ltebean/sticky-header">
+    <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"/>
+  </a>
+  <script type="text/javascript" src="./1.js"></script>
+  <script type="text/javascript" src="2.js"></script>
+  <script type="text/javascript" src="firefox.js"></script>
 </body>
 </html>
