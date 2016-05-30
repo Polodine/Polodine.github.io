@@ -34,16 +34,35 @@
 
 
   var bars = document.querySelectorAll('.bar');
+  var width = window.innerHeight;
   if (!(featureTest('position', 'sticky', true))){
+
+
     window.onload = function(){
+      
       Array.prototype.forEach.call(bars, function(bar) {
         sticky(bar);
         bar.onresize = function(e){
           e.preventDefault();
         }
       });
+    
     }
+
+    setInterval(function(){
+      if (window.innerHeight !== width){
+        window.onscroll = null;
+        Array.prototype.forEach.call(bars, function(bar) {
+          if (bar.getBoundingClientRect().top < 0)
+            return;
+          sticky(bar);
+        });
+        width = window.innerHeight;
+      }
+    }, 4)
   }
+
+
   else {
     Array.prototype.forEach.call(bars, function(bar) {
       bar.style.position = 'sticky';
