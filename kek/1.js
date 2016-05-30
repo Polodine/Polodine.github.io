@@ -7,7 +7,7 @@ function sticky(el, top) {
     var styles = {
       position: 'fixed',
       top: requiredTop + 'px',
-      left: originalRect.left + 'px',
+      // left: originalRect.left + 'px',
       // width: originalRect.width + 'px',
       'z-index': 9999
     }
@@ -20,26 +20,39 @@ function sticky(el, top) {
     if (window.onscroll) {
       onscroll = window.onscroll;
     }
-    
+    var height = document.documentElement.clientHeight;
+    // window.onresize = function(e){
+    //   if (!getWindowScroll().top && (height == document.documentElement.clientHeight)){
+    //     alert('asdf');
+    //     e.preventDefault();
+    //     e.stopPropagation();
+    //     return false;
+    //   }
+    // }
+    // var scrolling = false;
     window.onscroll = function(event) {
-      error = (document.documentElement.clientHeight - window.innerHeight > 0) ? (document.documentElement.clientHeight - window.innerHeight) : 0;
+      // error = (document.documentElement.clientHeight - window.innerHeight > 0) ? (document.documentElement.clientHeight - window.innerHeight) : 0;
       // error = 0;
       if (getWindowScroll().top > originalRect.top + error) {
         if (el.nextElementSibling) 
           el.nextElementSibling.style.marginTop = originalRect.height + 'px';
         for (key in styles) {
           el.style[key] = styles[key];
-          el.style.top = -error + 'px';
-          console.log(el.style.position);
-          console.log(el.style.top);
-          console.log(el.style.left);
+          // el.style.top = getWindowScroll().top + 'px';
+          // el.style.top = -error + 'px';
+          // console.log(el.style.position);
+          // console.log(el.style.top);
+          // console.log(el.style.left);
         }
-      } else {
+        // scrolling = true;
+      } 
+      else {
         if (el.nextElementSibling)
           el.nextElementSibling.style.marginTop = 0;
         for (key in originalStyles) {
           el.style[key] = originalStyles[key];
         }
+        // scrolling = false;
       }
       onscroll && onscroll(event)
     }

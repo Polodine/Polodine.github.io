@@ -38,6 +38,9 @@
     window.onload = function(){
       Array.prototype.forEach.call(bars, function(bar) {
         sticky(bar);
+        bar.onresize = function(e){
+          e.preventDefault();
+        }
       });
     }
   }
@@ -45,6 +48,7 @@
     Array.prototype.forEach.call(bars, function(bar) {
       bar.style.position = 'sticky';
       bar.style.top = 0;
+
     });
     setInterval(function(){
       lal.innerHTML += window.pageYOffset;
