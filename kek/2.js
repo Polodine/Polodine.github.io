@@ -27,9 +27,13 @@
   //   }
   // }
   
+// var mc = new Hammer.Manager(document.getElementById('go'));
+// var pinch = new Hammer.Pinch();
 
-
-
+// mc.add(pinch);
+// mc.on("pinch", function(ev) {
+//     alert('You sir did just pinch!');
+//      });
 
 
 
@@ -49,17 +53,17 @@
     
     }
 
-    setInterval(function(){
-      if (window.innerHeight !== width){
-        window.onscroll = null;
-        Array.prototype.forEach.call(bars, function(bar) {
-          if (bar.getBoundingClientRect().top < 0)
-            return;
-          sticky(bar);
-        });
-        width = window.innerHeight;
-      }
-    }, 4)
+    // setInterval(function(){
+    //   if (window.innerHeight !== width){
+    //     window.onscroll = null;
+    //     Array.prototype.forEach.call(bars, function(bar) {
+    //       if (bar.getBoundingClientRect().top < 0)
+    //         return;
+    //       sticky(bar);
+    //     });
+    //     width = window.innerHeight;
+    //   }
+    // }, 4)
   }
 
 

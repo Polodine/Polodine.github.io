@@ -1,6 +1,5 @@
 $(function(){
-        var destroyer = 0;
-      var userAgent = window.navigator.userAgent;
+      var destroyer = 0;
       var topElement = document.getElementById('bar2').getBoundingClientRect().top + window.pageYOffset;
       if (true){ 
       setInterval(function(){
