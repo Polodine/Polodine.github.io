@@ -1,11 +1,13 @@
 body{
-  height: 5000px;
+  height: 3500px;
   margin:0px;
 }
 .header{
   width: inherit;
   height: inherit;
   background-color:#333333;
+  top: auto;
+  bottom: auto;
 }
 .header-container{
 	position: sticky;
@@ -17,4 +19,5 @@ body{
 .placeholder{
   height: 200px;
   width: 100%;
+
 }
