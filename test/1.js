@@ -1,6 +1,6 @@
 !function(){
 
-  if (getComputedStyle(document.querySelector('.header').parentNode).position == "sticky")
+  if (getComputedStyle(document.querySelector('.header').parentNode).position == 'sticky') // For browsers, that support position: sticky
     return;
 
   var headers = document.querySelectorAll('.header');  
@@ -10,27 +10,43 @@
     window.addEventListener('scroll', currentListener);
   }
 
-  setInterval(function(){
-    lal.innerHTML += window.innerHeight + " " + document.documentElement.clientHeight + " " 
-    + document.documentElement.scrollTop + " ";
-  }, 3000);
+  var error = 0;
+setInterval(function(){
+    lal.innerHTML += window.innerHeight + ' ' + document.documentElement.clientHeight + ' ' 
+    + document.body.scrollTop + ' ';
+  }, 1000);
+  window.addEventListener('resize', resizeListenerError);
 
   function scrollListenerStickyHeader(header){
 
     var topCoordsOfStickyHeader = header.getBoundingClientRect().top + window.pageYOffset;
-    var error = 0;
 
     return function(){
       error = (document.documentElement.clientHeight - window.innerHeight > 0) ? 
-              (document.documentElement.clientHeight - window.innerHeight) : 0;
+            (document.documentElement.clientHeight - window.innerHeight) : 0;
+            console.log(error);
       if (window.pageYOffset >= topCoordsOfStickyHeader + error){
-        header.style.position = "fixed";
-        header.style.top = 0;
+        header.style.position = 'fixed';
+        header.style.top = -error + 'px';
+
       }
+      
       else 
-        header.style.position = "static";
+        header.style.position = 'static';
     }
 
   }
 
+  function resizeListenerError(){
+    if (document.body.scrollTop >= 0)
+      return;
+    
+  }
+
 }();
+
+  
+
+
+
+
