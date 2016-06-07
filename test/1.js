@@ -11,7 +11,7 @@
   
 
   var headers = document.querySelectorAll('.header');  
-
+  var content = document.querySelector('.container-body')
   for (var i = 0; i < headers.length; i++){
     var currentListener = scrollListenerStickyHeader(headers[i]);
     window.addEventListener('scroll', currentListener);
@@ -33,34 +33,14 @@
     var topCoordsOfStickyHeader = header.getBoundingClientRect().top + window.pageYOffset;
 
     return function(){
-      // pff.style.width = document.documentElement.clientWidth + 'px' ;
-      // pff.style.height = document.documentElement.clientHeight + 'px' ;
 
-      // if (window.innerWidth != d){
-        // header.style.position = 'static';
-        // width = window.innerWidth;
-        // b = window.pageYOffset;
-        // d = window.innerWidth;
-        // return;
-      // }
-      // if (b){
-        // c = b - a;
-        // b = 0;
-        // alert(c);
-      // }
-      // if (width == window.innerWidth)
-        // a = window.pageYOffset;
-      // d = window.innerWidth;
       if (window.pageYOffset - c  >= topCoordsOfStickyHeader + error){
         header.style.position = 'fixed';
         header.style.top = -error + 'px';
-        // lal.innerHTML = '12312';
       }
-      
       else 
         header.style.position = 'static';
     }
-
   }
 
   function resizeListenerError(){
