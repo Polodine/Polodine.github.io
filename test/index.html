@@ -1,11 +1,8 @@
 <!DOCTYPE html>  <!-- Wrong document.documentElement.clientHeight without it -->
 <link rel="stylesheet" href="1.css">
 <body>
-	<div class="container-body">
-		<div class="header-container">
-		  <div class="header">
-		  </div>
-		</div>
+	<div class="body">
+		  
 		<h4>kek1</h4>
 		<h4>kek2</h4>
 		<h4>kek3</h4>
@@ -23,6 +20,11 @@
 		<h4>kek15</h4>
 		<h4>kek16</h4>
 		<h4>kek17</h4>
+				<div class="header-container">
+<div class="header">
+		  </div>
+		</div>
+
 		<h4>kek18</h4>
 		<h4>kek19</h4>
 		<h4>kek20</h4>
@@ -56,6 +58,10 @@
 		<h4>kek48</h4>
 		<h4>kek49</h4>
 		<h4>kek50</h4>
+		<div class="header-container" style="background-color:#999999">
+<div class="header">
+		  </div>
+		</div>
 <!-- 		<div class="header-container">
 		  <div class="header" style="background-color:#999999">
 		  </div>
@@ -110,8 +116,19 @@
 		<h4>kek98</h4>
 		<h4>kek99</h4>
 		<h4>kek100</h4>
-		<div style="border: 5px solid red; position: fixed; top: 400px; width: 100%; color: red; font-size: 18px" id="pf"></div>
+<!-- 		<div style="border: 5px solid red; position: fixed; top: 400px; width: 100%; color: red; font-size: 18px" id="pf"></div> -->
 	</div>
-</body>
-<!-- <div style="position: fixed; border: 5px solid blue; top: 0" id="pff"></div> -->                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+	 <script>
+	 	setInterval(function(){
+	 		console.log(document.querySelector(
+	 			'.body').getBoundingClientRect().top);
+	 		if (document.body.scrollTop < 0){
+	 		window.scrollTo(0,0);
+	 	}
+	 	}, 1000)
+
+
+	 </script>
 <!-- <script type="text/javascript" src="1.js"></script> -->
+</body>
+<!-- <div style="position: fixed; border: 5px solid blue; top: 0" id="pff"></div> -->                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
