@@ -1,0 +1,43 @@
+html{
+  background-color: orange;
+}
+
+body{
+  background-color: pink;
+  margin: 0;
+  padding: 0;
+}
+
+.header-container{
+  height: 150px;
+  width: 100%;
+}
+
+.header{
+  background-color: yellow;
+  width: 80%;
+  height: inherit;
+  margin: auto;
+  position: relative;
+}
+
+.header-fullWidth{
+	width: 100%;
+  height: 150px;
+  position: sticky;
+  position: -webkit-sticky;
+  position: -o-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  top: 0;
+}
+
+.page-container{
+  background-color: blue;
+  position: absolute;
+  width: 100%;      
+  height: 100%;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
