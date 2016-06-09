@@ -1,11 +1,15 @@
 html{
   background-color: orange;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 body{
   background-color: pink;
   margin: 0;
   padding: 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .header-container{
@@ -38,6 +42,7 @@ body{
   width: 100%;      
   height: 100%;
   overflow-y: scroll;
+  overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
 }
 
